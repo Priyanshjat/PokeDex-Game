@@ -12,13 +12,15 @@ export const PokeReducer=(state,action)=>{
         case "INCREASE_SCORE" :
         return{
           ...state,
-          score:state.score+100
+          score:state.score+100,
+          visibility:true,
           
         }
         case "DECREASE_LIFE" :
         return{
           ...state,
-          life:state.life-1
+          life:state.life-1,
+          visibility:true,
           
         }
          case "HINT":
