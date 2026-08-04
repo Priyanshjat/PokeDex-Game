@@ -4,7 +4,8 @@ export const PokeReducer=(state,action)=>{
         return{
           ...state,
           pokemon:action.payload,
-          visibility:false
+          visibility:false,
+          hintUsed:false,
           
           
         }
@@ -24,8 +25,16 @@ export const PokeReducer=(state,action)=>{
       return {
         ...state,
         visibility: true,
+        hintUsed: true,
         score: state.score - 50,
       };
+
+          case "HIDE_POKEMON":
+      return {
+        ...state,
+        visibility: false,
+      };
+      
 
 
     default:

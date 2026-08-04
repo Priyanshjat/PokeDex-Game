@@ -11,7 +11,8 @@ export const PokeProvider=({children})=>{
     pokemon:null,
     score :100,
     life:3,
-    visibility:false
+    visibility:false,
+    useHint:false
 
   }
 

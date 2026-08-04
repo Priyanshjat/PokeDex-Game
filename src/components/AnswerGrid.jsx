@@ -3,7 +3,7 @@ import PokeContext from "../context/PokeContext";
 import { fetchPokemon } from "../context/PokeService";
 
 const AnswerGrid = () => {
-  const { pokemon, dispatch, visibility } = useContext(PokeContext);
+  const { pokemon, dispatch, visibility,hintUsed } = useContext(PokeContext);
 
   const checkAnswer = (name) => {
     if (pokemon.name === name) {
@@ -29,6 +29,8 @@ const AnswerGrid = () => {
 
 
 
+
+
   };
   
 
@@ -40,9 +42,12 @@ const AnswerGrid = () => {
     if (visibility) return
     dispatch({
       type: "HINT"
-      
-
-    })
+})
+     setTimeout(() => {
+    dispatch({
+      type: "HIDE_POKEMON",
+    });
+  }, 5000); 
   }
   
   
@@ -66,6 +71,7 @@ const AnswerGrid = () => {
       <div className="bg-yellow-300 border-4 border-black p-5 mt-6 shadow-[6px_6px_0px_black]">
         <button
           onClick={useHint}
+          disabled={hintUsed}
 
           className="p-2 w-32 cursor-pointer my-2 rounded-md font-bold bg-gray-100 disabled:opacity-50"
         >
